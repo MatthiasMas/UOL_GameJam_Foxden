@@ -13,7 +13,7 @@ public class TestScript : MonoBehaviour
     void Start()
     {
         pos = gameObject.transform.position;
-        FindObjectOfType<GameManager>().PlaySound("Test");
+        FindObjectOfType<GameManager>().PlaySound("TestSFX", GameManager.MixerGroup.SFX);
     }
 
     // Update is called once per frame

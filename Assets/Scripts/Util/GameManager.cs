@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public AudioMixerGroup audioMixerGroup;
+    public enum MixerGroup {Master, Music, SFX};
+    public AudioMixerGroup masterAudioMixerGroup;
+    public AudioMixerGroup musicAudioMixerGroup;
+    public AudioMixerGroup sfxAudioMixerGroup;
     public Sound[] sounds;
     public GameObject[] prefabs;
     public Sprite[] sprites;
@@ -36,7 +39,6 @@ public class GameManager : MonoBehaviour
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
             s.source.loop = s.loop;
-            s.source.outputAudioMixerGroup = audioMixerGroup;
         }
     }
 
@@ -45,7 +47,7 @@ public class GameManager : MonoBehaviour
         // add theme here
     }
 
-    public void PlaySound(string name)
+    public void PlaySound(string name, MixerGroup group)
     /* This method is called to play a sound
      * Sounds can be added to the sounds array in the inspector
      * 
@@ -60,7 +62,37 @@ public class GameManager : MonoBehaviour
             Debug.Log("sound with name " + name + " can not be found!");
             return;
         }
-        s.source.Play();
+
+        switch (group)
+        {
+            case MixerGroup.Master:
+                {
+                    s.source.outputAudioMixerGroup = masterAudioMixerGroup;
+                    break;
+                }
+            case MixerGroup.Music:
+                {
+                    s.source.outputAudioMixerGroup = musicAudioMixerGroup;
+                    break;
+                }
+            case MixerGroup.SFX:
+                {
+                    s.source.outputAudioMixerGroup = sfxAudioMixerGroup;
+                    break;
+                }
+            default:
+                {
+                    Debug.Log("No audio mixer with that name found, using default one");
+                    s.source.outputAudioMixerGroup = masterAudioMixerGroup;
+                    break;
+                }
+        }
+
+        if (!s.source.isPlaying)
+        {
+
+            s.source.Play();
+        }
     }
 
     public GameObject GetPrefab(string name)

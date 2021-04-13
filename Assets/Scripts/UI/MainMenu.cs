@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
@@ -7,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     public AudioMixer masterMixer;
+
 
     public void PlayGame()
     {
@@ -19,9 +21,21 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
     }
 
-    public void SetAudioLevel(System.Single audioLevel)
+    public void SetMasterAudioLevel(System.Single audioLevel)
     {
-        masterMixer.SetFloat("Volume", Mathf.Log10(audioLevel) * 20);
-        FindObjectOfType<GameManager>().PlaySound("Test");
+        masterMixer.SetFloat("MasterVolume", Mathf.Log10(audioLevel) * 20);
+        FindObjectOfType<GameManager>().PlaySound("TestMusic", GameManager.MixerGroup.Master);
+    }
+
+    public void SetMusicAudioLevel(System.Single audioLevel)
+    {
+        masterMixer.SetFloat("MusicVolume", Mathf.Log10(audioLevel) * 20);
+        FindObjectOfType<GameManager>().PlaySound("TestMusic", GameManager.MixerGroup.Music);
+    }
+
+    public void SetSFXAudioLevel(System.Single audioLevel)
+    {
+        masterMixer.SetFloat("SFXVolume", Mathf.Log10(audioLevel) * 20);
+        FindObjectOfType<GameManager>().PlaySound("TestSFX", GameManager.MixerGroup.SFX);
     }
 }
