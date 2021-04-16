@@ -1,3 +1,4 @@
+using NoiseTest;
 using UnityEngine;
 
 public class FogGeneration : MonoBehaviour
@@ -5,8 +6,39 @@ public class FogGeneration : MonoBehaviour
     public int width = 256;
     public int height = 256;
 
-    private void Start()
+    public float scale = 20f;
+
+    public float offsetX = 100f;
+    public float offsetY = 100f;
+
+    public float fogSpeed = 30f;
+
+    //public AnimationCurve curve;
+
+    public float timer = 0f;
+    public float renderTimer = 0f;
+
+    private OpenSimplexNoise simplex;
+
+    void Start()
     {
+        simplex = new OpenSimplexNoise();
+    }
+
+    void Update()
+    {
+        timer += Time.deltaTime;
+        renderTimer += Time.deltaTime;
+        if (renderTimer > 0.1f)
+        {
+            RenderTexture();
+            renderTimer = 0f;
+        }
+    }
+
+    void RenderTexture()
+    {
+
         Renderer renderer = GetComponent<Renderer>();
         renderer.material.mainTexture = GenerateTexture();
     }
@@ -31,18 +63,26 @@ public class FogGeneration : MonoBehaviour
 
     Color CalculateColor(int x, int y)
     {
-        float xCoord = (float)x / width;
-        float yCoord = (float)y / height;
+        float xCoord = (float)x / width * scale +  offsetX;
+        float yCoord = (float)y / height * scale + offsetY;
+        float zCoord = timer / fogSpeed;
 
-        float sample = Mathf.PerlinNoise(xCoord, yCoord);
+        //float sample = Mathf.PerlinNoise(xCoord, yCoord);
+        //float sampleTime = Mathf.PerlinNoise(0, zCoord);
+        float sample = (float)simplex.Evaluate(xCoord, yCoord, zCoord);
 
-        if (sample < 0.4f)
+        float sampleY;
+
+        if (sample < 0f)
         {
-            return new Color(0, 0, 0);
+            return new Color(0, 0, 0, 0);
         }
         else
         {
-            return new Color(sample, sample, sample);
+            //sampleY = curve.Evaluate(sample);
+            sampleY = sample;
+            return new Color(sampleY, sampleY, sampleY);
         }
+        
     }
 }
