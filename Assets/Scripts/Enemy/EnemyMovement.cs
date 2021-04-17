@@ -23,14 +23,17 @@ public class EnemyMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerPosition = GameObject.FindGameObjectWithTag("Player").transform;
+        if (playerPosition != null)
+        {
+            playerPosition = GameObject.FindGameObjectWithTag("Player").transform;
+        }
         GenerateNewGoalPosition();
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector2 dir;
+        Vector2 dir = Vector2.zero;
 
         if (wasInFOV && !isInFOV)                                                               // enemy has seen the player BEFORE but should generate a new random pos now
         {
@@ -39,7 +42,10 @@ public class EnemyMovement : MonoBehaviour
         if (isInFOV)                                                                            // the enemy has seen the player and should move towards him
         {
             wasInFOV = true;
-            dir = (playerPosition.position - transform.position).normalized;
+            if (playerPosition != null)
+            {
+                dir = (playerPosition.position - transform.position).normalized;
+            }
         }
         else
         {

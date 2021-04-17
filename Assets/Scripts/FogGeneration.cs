@@ -37,6 +37,10 @@ public class FogGeneration : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (player == null)
+        {
+            return;
+        }
         offsetX = player.gameObject.transform.position.x;
         offsetY = player.gameObject.transform.position.y;
     }

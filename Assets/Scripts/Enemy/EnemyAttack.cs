@@ -19,7 +19,6 @@ public class EnemyAttack : MonoBehaviour
     private float chargeTime2 = 0.05f;
 
     private float attackTimer = 0f;
-    private float shootDistance = 2f;
     [SerializeField]
     private float projectileSpeed = 1f;
 
@@ -32,6 +31,10 @@ public class EnemyAttack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (GameObject.FindGameObjectsWithTag("Player").Length == 0)
+        {
+            return;
+        }
         playerPosition = GameObject.FindGameObjectWithTag("Player").transform;
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
     }
@@ -57,6 +60,10 @@ public class EnemyAttack : MonoBehaviour
         GameObject projectilePrefab = FindObjectOfType<GameManager>().GetPrefab("Projectile");
         //FindObjectOfType<GameManager>().PlaySound("TestSFX", GameManager.MixerGroup.SFX);
         yield return new WaitForSeconds(chargeTime1);
+        if (playerPosition == null)
+        {
+            yield break;
+        }
         Vector3 playerPos = playerPosition.position;
         yield return new WaitForSeconds(chargeTime2);
 
