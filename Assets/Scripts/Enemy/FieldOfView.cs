@@ -84,7 +84,7 @@ public class FieldOfView : MonoBehaviour
 
         Vector3 direction = playerTransform.position - firePoint.position;
         RaycastHit hit;
-        if (Physics.Raycast(firePoint.position, direction, out hit, viewDistance, layerMask))
+        if (Physics.Raycast(firePoint.position, direction, out hit, viewDistance - Vector2.Distance(firePoint.transform.position,transform.parent.parent.transform.position), layerMask))
         {
             Vector3 forwardDirection = firePoint.transform.position - transform.parent.parent.transform.position;
             float angle = Vector3.Angle(direction, forwardDirection);
