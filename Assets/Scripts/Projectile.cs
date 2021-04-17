@@ -32,6 +32,12 @@ public class Projectile : MonoBehaviour
             // TODO: SOUND PLAYER HIT
             Player player = collision.gameObject.GetComponent<Player>();
             player.TakeDamage();
+            Destroy(gameObject);
         }
+    }
+
+    private void OnBecameInvisible()
+    {
+        Destroy(gameObject);
     }
 }
