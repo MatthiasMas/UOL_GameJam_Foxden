@@ -9,13 +9,21 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private Animator animator;
     [SerializeField]
-    private float movementSpeed = 2f;
+    private float movementSpeed = 2f;    
+    [SerializeField]
+    private float boostSpeed = 4f;
+    [SerializeField]
+    private float boostLength = 0.2f;
+    [SerializeField]
+    private float timeBetweenBoosts = 2.5f;
     [SerializeField]
     private FogGeneration fog;
 
     private Vector2 lastPlayerPos = new Vector2(0f, 0f);
     private Vector2 deltaOffset = new Vector2(0f, 0f);
     private Vector3 input;
+    private float speedMultiplier = 150f;
+    private double lastBoost = 0;
 
     
     void Update()
@@ -35,7 +43,21 @@ public class PlayerMovement : MonoBehaviour
     
     void FixedUpdate()
     {
-        this.player.MovePosition(this.player.position + (this.input * (this.movementSpeed * Time.fixedDeltaTime)));
+        float speed = this.movementSpeed * this.speedMultiplier;
+        double time = Time.timeAsDouble;
+        
+        if (Input.GetKey("space") && time > (this.lastBoost + this.boostLength + this.timeBetweenBoosts))
+        {
+            this.lastBoost = time;
+        }
+
+        if (time >= this.lastBoost && time <= (this.lastBoost + this.boostLength))
+        {
+            speed = this.boostSpeed * this.speedMultiplier;
+        }
+
+        Vector3 playerForce = this.input * (Time.fixedDeltaTime * speed);
+        this.player.AddForce(playerForce);
     }
 
     public Vector2 getDeltaOffset()

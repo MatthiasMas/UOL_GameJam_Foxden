@@ -561,8 +561,8 @@ Rigidbody:
   m_GameObject: {fileID: 1948748055}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Drag: 2.5
+  m_AngularDrag: 0.5
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -634,9 +634,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1948748057}
   animator: {fileID: 1948748056}
-  movementSpeed: 2
+  movementSpeed: 1
+  boostSpeed: 10
   fog: {fileID: 1700695167}
-  deltaOffset: {x: 0, y: 0}
 --- !u!4 &1948748060
 Transform:
   m_ObjectHideFlags: 0
