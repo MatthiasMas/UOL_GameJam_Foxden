@@ -18,7 +18,9 @@ public class EnemyMovement : MonoBehaviour
     private float newGoalDistance;
 
     public bool isInFOV;
-    private bool wasInFOV;
+    public bool wasInFOV;
+
+    private float fovTimer = 0f;
 
     // Start is called before the first frame update
     void Start()
@@ -35,13 +37,8 @@ public class EnemyMovement : MonoBehaviour
     {
         Vector2 dir = Vector2.zero;
 
-        if (wasInFOV && !isInFOV)                                                               // enemy has seen the player BEFORE but should generate a new random pos now
-        {
-            GenerateNewGoalPosition();
-        }
         if (isInFOV)                                                                            // the enemy has seen the player and should move towards him
         {
-            wasInFOV = true;
             if (playerPosition != null)
             {
                 dir = (playerPosition.position - transform.position).normalized;
@@ -49,7 +46,6 @@ public class EnemyMovement : MonoBehaviour
         }
         else
         {
-            wasInFOV = false;
             dir = (goalPosition - (Vector2)transform.position).normalized;
             if (Vector2.Distance(transform.position, goalPosition) <= goalReachedDistance)      // enemy reached its current goal and should generate a new one
             {

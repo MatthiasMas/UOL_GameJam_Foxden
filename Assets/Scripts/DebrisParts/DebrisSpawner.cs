@@ -9,8 +9,6 @@ public class DebrisSpawner : MonoBehaviour
     private DebrisPart[] debrisParts;
     private Transform playerTransform;
 
-    private float timer = 0f;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -24,16 +22,11 @@ public class DebrisSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timer += Time.deltaTime;
-        if (timer >= 5f)
+        if (playerTransform == null)
         {
-            Spawn();
-            timer = 0f;
+            return;
         }
-    }
 
-    void Spawn()
-    {
         foreach (DebrisPart part in debrisParts)
         {
             GameObject[] partObjects = GameObject.FindGameObjectsWithTag(part.name);
