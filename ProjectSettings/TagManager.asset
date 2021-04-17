@@ -9,6 +9,8 @@ TagManager:
   - Shield
   - Weapon
   - ShieldEquipped
+  - SpeedModule
+  - Drive
   layers:
   - Default
   - TransparentFX

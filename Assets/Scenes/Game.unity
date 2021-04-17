@@ -252,6 +252,9 @@ MonoBehaviour:
   debrisParts:
   - {fileID: 11400000, guid: acae6e02edc7bdb47ac6311156c09c13, type: 2}
   - {fileID: 11400000, guid: ebb5d3e486364bb42a8dda2d0fe403bf, type: 2}
+  - {fileID: 11400000, guid: 09cdab332edb92baebd0d30d749bf954, type: 2}
+  - {fileID: 11400000, guid: 8e382f9cefaa2934c968b450e88b2508, type: 2}
+  - {fileID: 11400000, guid: 0bd911bf05aa83202bf1b30e17c55a78, type: 2}
 --- !u!1 &62062241
 GameObject:
   m_ObjectHideFlags: 0
@@ -302,6 +305,9 @@ MonoBehaviour:
   - {fileID: 2843998687465054374, guid: 4fb9e45207a73694793b85a6d5d069d2, type: 3}
   - {fileID: 4916090665251387200, guid: 4adb88fd7aa90e54993058a73ed33794, type: 3}
   - {fileID: 3999618497111559124, guid: 36d1120412804674e8c30ec748d6928d, type: 3}
+  - {fileID: 1179411738616777708, guid: 5e5e0e8dbb67f7aa9883fee461a464e0, type: 3}
+  - {fileID: 1420852548030163100, guid: cc72fef39f3ae6c47bcec4a6a6ec6ede, type: 3}
+  - {fileID: 3509650986220994591, guid: 9c58c659c15358276a95b9234a7ab58d, type: 3}
   sprites: []
 --- !u!4 &62062243
 Transform:
@@ -1942,12 +1948,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1948748060}
+  - component: {fileID: 1948748062}
   - component: {fileID: 1948748059}
   - component: {fileID: 1948748058}
   - component: {fileID: 1948748056}
   - component: {fileID: 1948748061}
   - component: {fileID: 1948748057}
-  - component: {fileID: 1948748062}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
