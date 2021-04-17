@@ -28,4 +28,14 @@ public class Enemy : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
+    private void OnTriggerStay(Collider collision)
+    {
+        if (collision.tag == "Player")
+        {
+            Player player = collision.gameObject.GetComponent<Player>();
+            // TODO: SOUND EXPLOSION
+            player.TakeDamage();
+        }
+    }
 }

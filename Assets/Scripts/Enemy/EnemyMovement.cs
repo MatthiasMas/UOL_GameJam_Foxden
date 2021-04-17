@@ -20,15 +20,10 @@ public class EnemyMovement : MonoBehaviour
     public bool isInFOV;
     public bool wasInFOV;
 
-    private float fovTimer = 0f;
-
     // Start is called before the first frame update
     void Start()
     {
-        if (playerPosition != null)
-        {
-            playerPosition = GameObject.FindGameObjectWithTag("Player").transform;
-        }
+        playerPosition = GameObject.FindGameObjectWithTag("Player").transform;
         GenerateNewGoalPosition();
     }
 

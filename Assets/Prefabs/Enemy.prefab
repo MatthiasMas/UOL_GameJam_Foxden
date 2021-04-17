@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3107546092199505466}
-  - component: {fileID: 1897282197254181517}
+  - component: {fileID: 2931344407419523488}
   m_Layer: 0
   m_Name: Vision
   m_TagString: Untagged
@@ -33,7 +33,7 @@ Transform:
   m_Father: {fileID: 7057430266319516429}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1897282197254181517
+--- !u!114 &2931344407419523488
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -42,11 +42,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 709691573740583070}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 315e25bad2f1b83428edb4e12d91f01e, type: 3}
+  m_Script: {fileID: 11500000, guid: fdca220a5ad0b224db118893906527fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyMovement: {fileID: 0}
-  enemyAttack: {fileID: 0}
+  enemyMovement: {fileID: 7057430266319516431}
 --- !u!1 &1603383287588701304
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,6 +93,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 7057430266319516431}
+  enemyAttack: {fileID: 3418218753638830163}
   fov: 90
   viewDistance: 4
   firePoint: {fileID: 1124548551330628272}
@@ -285,6 +285,7 @@ GameObject:
   - component: {fileID: 6630193943323460271}
   - component: {fileID: 3418218753638830163}
   - component: {fileID: 7153595121203498064}
+  - component: {fileID: 7337198362148299404}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -408,7 +409,7 @@ MonoBehaviour:
   attackRate: 1
   chargeTime1: 0.45
   chargeTime2: 0.05
-  projectileSpeed: 5
+  projectileSpeed: 7
 --- !u!95 &7153595121203498064
 Animator:
   serializedVersion: 3
@@ -428,6 +429,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!65 &7337198362148299404
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7057430266319516530}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9375, y: 0.96875, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7163561045001671409
 GameObject:
   m_ObjectHideFlags: 0
