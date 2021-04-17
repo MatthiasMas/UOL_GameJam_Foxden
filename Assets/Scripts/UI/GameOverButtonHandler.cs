@@ -9,4 +9,9 @@ public class GameOverButtonHandler : MonoBehaviour
     {
         SceneManager.LoadScene(1);
     }
+    
+    public void exitGame()
+    {
+        SceneManager.LoadScene(0);
+    }
 }
