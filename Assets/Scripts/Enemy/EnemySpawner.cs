@@ -33,8 +33,8 @@ public class EnemySpawner : MonoBehaviour
         while (Vector2.Distance(position, transform.position) < minSpawnDistance)
         {
             position = new Vector3(
-            Random.Range(-maxSpawnDistance, maxSpawnDistance),
-            Random.Range(-maxSpawnDistance, maxSpawnDistance),
+            transform.position.x + Random.Range(-maxSpawnDistance, maxSpawnDistance),
+            transform.position.y + Random.Range(-maxSpawnDistance, maxSpawnDistance),
             0);
         }
         Instantiate(enemyPrefab, position, Quaternion.identity);

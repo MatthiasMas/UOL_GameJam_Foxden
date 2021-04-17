@@ -25,4 +25,9 @@ public class Enemy : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    public void OnTriggerStay2D(Collider2D collision)
+    {
+        print("trigger");
+    }
 }

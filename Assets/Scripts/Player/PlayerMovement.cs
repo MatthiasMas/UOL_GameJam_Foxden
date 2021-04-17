@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public Rigidbody2D player;
+    public Rigidbody player;
     public Animator animator;
     public float movementSpeed = 2f;
-    private Vector2 input;
+    private Vector3 input;
     [SerializeField]
     private FogGeneration fog;
 
@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
     {
         this.input.x = Input.GetAxisRaw("Horizontal");
         this.input.y = Input.GetAxisRaw("Vertical");
+        this.input.z = 0;
 
         this.animator.SetFloat("Horizontal", this.input.x);
         this.animator.SetFloat("Vertical", this.input.y);
