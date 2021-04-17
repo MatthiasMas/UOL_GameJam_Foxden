@@ -1,20 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 
 public class FieldOfView : MonoBehaviour
 {
 
     public EnemyMovement enemy;
+    public EnemyAttack enemyAttack;
     [SerializeField]
     private float fov = 60f;
     public float viewDistance = 4f;
     [SerializeField]
     private Transform firePoint;
 
-    private Vector3 origin = new Vector3(0.35f, -0.20f, 0);
+    private Vector3 origin = Vector3.zero;
     private Mesh mesh;
     private Transform playerTransform;
+    
 
     private int layerMask = 1 << 8;
 
@@ -85,13 +86,18 @@ public class FieldOfView : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(firePoint.position, direction, out hit, viewDistance, layerMask))
         {
-            print(direction);
-            float angle = Vector3.Angle(transform.position + transform.forward, direction);
-            print(angle);
+            Vector3 forwardDirection = firePoint.transform.position - transform.parent.parent.transform.position;
+            float angle = Vector3.Angle(direction, forwardDirection);
             if (angle < fov / 2)
             {
-                print("hit player");
+                enemy.isInFOV = true;
+                enemyAttack.canAttack = true;
             }
+        }
+        else
+        {
+            enemy.isInFOV = false;
+            enemyAttack.canAttack = false;
         }
     }
 

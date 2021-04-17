@@ -51,7 +51,7 @@ public class EnemyAttack : MonoBehaviour
         }
 
         attackTimer -= Time.deltaTime;
-        if (canAttack && attackTimer <= 0f && Vector2.Distance(playerPosition.position, transform.position) < fov.viewDistance)
+        if (canAttack && attackTimer <= 0f)
         {
             Charge();
         }
@@ -59,7 +59,7 @@ public class EnemyAttack : MonoBehaviour
 
     void Charge()
     {
-        attackTimer = 1 / attackRate;
+        attackTimer = attackRate;
         StartCoroutine(Attack());
     }
 
