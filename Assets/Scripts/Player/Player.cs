@@ -5,10 +5,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public bool shieldLeft;
-    public bool shieldRight;
-    public bool core;
-    public bool weapon;
+    [SerializeField]
+    private InventoryHandler inventory;
 
     private GameObject shieldLeftEquipped;
     private GameObject shieldRightEquipped;
@@ -33,12 +31,12 @@ public class Player : MonoBehaviour
     {
         if (shield == "ShieldLeft")
         {
-            shieldLeft = false;
+            this.inventory.setLeftShield(false);
             shieldLeftEquipped.SetActive(false);
         }
         if (shield == "ShieldRight")
         {
-            shieldRight = false;
+            this.inventory.setRightShield(false);
             shieldRightEquipped.SetActive(false);
         }
     }
@@ -47,35 +45,56 @@ public class Player : MonoBehaviour
     {
         if (part == "Core")
         {
-            if (!core)
+            if (!this.inventory.hasCore())
             {
-                core = true;
+                this.inventory.setCore(true);
                 return true;
             }
         }
         if (part == "Shield")
         {
-            if (!shieldLeft)
+            if (!this.inventory.hasLeftShield())
             {
-                shieldLeft = true;
+                this.inventory.setLeftShield(true);
                 shieldLeftEquipped.SetActive(true);
                 return true;
             }
-            if (!shieldRight)
+            if (!this.inventory.hasRightShield())
             {
-                shieldRight = true;
+                this.inventory.setRightShield(true);
                 shieldRightEquipped.SetActive(true);
                 return true;
             }
         }
         if (part == "Weapon")
         {
-            if (!weapon)
+            if (!this.inventory.hasWeapon())
             {
-                weapon = true;
+                this.inventory.setWeapon(true);
+                return true;
+            }
+        }
+        if (part == "SpeedModule")
+        {
+            if (!this.inventory.hasSpeedModule())
+            {
+                this.inventory.setSpeedModule(true);
+                return true;
+            }
+        }
+        if (part == "Drive")
+        {
+            if (!this.inventory.hasDrive())
+            {
+                this.inventory.setDrive(true);
                 return true;
             }
         }
         return false;
+    }
+
+    public InventoryHandler getInventory()
+    {
+        return this.inventory;
     }
 }

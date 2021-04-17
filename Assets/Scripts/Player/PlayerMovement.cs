@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Xml;
@@ -21,13 +22,19 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private FogGeneration fog;
 
+    private Player playerObject;
     private Vector2 lastPlayerPos = new Vector2(0f, 0f);
     private Vector2 deltaOffset = new Vector2(0f, 0f);
     private Vector3 input;
     private float speedMultiplier = 150f;
     private double lastBoost = 0;
 
-    
+
+    private void Start()
+    {
+        this.playerObject = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+    }
+
     void Update()
     {
         this.input.x = Input.GetAxisRaw("Horizontal");
@@ -60,6 +67,8 @@ public class PlayerMovement : MonoBehaviour
         {
             speed = this.boostSpeed * this.speedMultiplier;
         }
+
+        speed -= 10 * this.playerObject.getInventory().count();
 
         Vector3 playerForce = this.input * (Time.fixedDeltaTime * speed);
         this.player.AddForce(playerForce);
