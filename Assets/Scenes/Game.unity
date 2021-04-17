@@ -308,8 +308,8 @@ MonoBehaviour:
   - {fileID: 1179411738616777708, guid: 5e5e0e8dbb67f7aa9883fee461a464e0, type: 3}
   - {fileID: 1420852548030163100, guid: cc72fef39f3ae6c47bcec4a6a6ec6ede, type: 3}
   - {fileID: 3509650986220994591, guid: 9c58c659c15358276a95b9234a7ab58d, type: 3}
-  - {fileID: 9202163618114184290, guid: 0a1444dc8a4b7eb46ad23c56f119ad76, type: 3}  
-sprites: []
+  sprites:
+  - {fileID: 9202163618114184290, guid: 0a1444dc8a4b7eb46ad23c56f119ad76, type: 3}
 --- !u!4 &62062243
 Transform:
   m_ObjectHideFlags: 0
