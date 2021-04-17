@@ -8,6 +8,7 @@ TagManager:
   - Core
   - Shield
   - Weapon
+  - ShieldEquipped
   layers:
   - Default
   - TransparentFX
@@ -17,7 +18,7 @@ TagManager:
   - UI
   - Background
   - 
-  - 
+  - RaycastTarget
   - 
   - 
   - 

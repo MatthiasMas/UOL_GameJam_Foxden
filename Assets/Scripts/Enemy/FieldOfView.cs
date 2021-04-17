@@ -8,16 +8,27 @@ public class FieldOfView : MonoBehaviour
     public EnemyMovement enemy;
     [SerializeField]
     private float fov = 60f;
+    public float viewDistance = 4f;
     [SerializeField]
-    private float viewDistance = 3f;
+    private Transform firePoint;
 
     private Vector3 origin = new Vector3(0.35f, -0.20f, 0);
     private Mesh mesh;
+    private Transform playerTransform;
+
+    private int layerMask = 1 << 8;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        if (GameObject.FindGameObjectWithTag("Player") == null)
+        {
+            return;
+        }
+
+        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+
         mesh = new Mesh();
         GetComponent<MeshFilter>().mesh = mesh;
         GetComponent<MeshCollider>().sharedMesh = mesh;
@@ -63,7 +74,25 @@ public class FieldOfView : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (playerTransform == null)
+        {
+            return;
+        }
+
         transform.localEulerAngles = new Vector3(0, 0, 90 + (fov / 2));
+
+        Vector3 direction = playerTransform.position - firePoint.position;
+        RaycastHit hit;
+        if (Physics.Raycast(firePoint.position, direction, out hit, viewDistance, layerMask))
+        {
+            print(direction);
+            float angle = Vector3.Angle(transform.position + transform.forward, direction);
+            print(angle);
+            if (angle < fov / 2)
+            {
+                print("hit player");
+            }
+        }
     }
 
     private Vector3 GetVectorFromAngle(float angle)

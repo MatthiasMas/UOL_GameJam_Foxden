@@ -10,24 +10,37 @@ public class Player : MonoBehaviour
     public bool core;
     public bool weapon;
 
+    private GameObject shieldLeftEquipped;
+    private GameObject shieldRightEquipped;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        shieldLeftEquipped = GameObject.Find("ShieldLeft");
+        shieldLeftEquipped.SetActive(false);
+        shieldRightEquipped = GameObject.Find("ShieldRight");
+        shieldRightEquipped.SetActive(false);
+    }
+
     public void TakeDamage()
     {
-        if (shieldLeft)
-        {
-            //TODO: SOUND FOR HITTING SHIELD
-            shieldLeft = false;
-            return;
-        }
-        if (shieldRight)
-        {
-            //TODO: SOUND FOR HITTING SHIELD
-            shieldRight = false;
-            return;
-        }
         transform.DetachChildren();
-        
         Destroy(gameObject);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void HitShield(string shield)
+    {
+        if (shield == "ShieldLeft")
+        {
+            shieldLeft = false;
+            shieldLeftEquipped.SetActive(false);
+        }
+        if (shield == "ShieldRight")
+        {
+            shieldRight = false;
+            shieldRightEquipped.SetActive(false);
+        }
     }
 
     public bool CollectDebris(string part)
@@ -45,11 +58,13 @@ public class Player : MonoBehaviour
             if (!shieldLeft)
             {
                 shieldLeft = true;
+                shieldLeftEquipped.SetActive(true);
                 return true;
             }
             if (!shieldRight)
             {
                 shieldRight = true;
+                shieldRightEquipped.SetActive(true);
                 return true;
             }
         }

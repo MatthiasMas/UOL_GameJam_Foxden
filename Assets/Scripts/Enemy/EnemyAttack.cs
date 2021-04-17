@@ -8,6 +8,8 @@ public class EnemyAttack : MonoBehaviour
     private Player player;
     [SerializeField]
     private Transform firePoint;
+    [SerializeField]
+    private FieldOfView fov;
 
     [HideInInspector]
     public bool canAttack = false;
@@ -17,6 +19,7 @@ public class EnemyAttack : MonoBehaviour
     private float chargeTime1 = 0.45f;
     [SerializeField]
     private float chargeTime2 = 0.05f;
+    
 
     private float attackTimer = 0f;
     [SerializeField]
@@ -42,8 +45,13 @@ public class EnemyAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (playerPosition == null)
+        {
+            return;
+        }
+
         attackTimer -= Time.deltaTime;
-        if (canAttack && attackTimer <= 0f)
+        if (canAttack && attackTimer <= 0f && Vector2.Distance(playerPosition.position, transform.position) < fov.viewDistance)
         {
             Charge();
         }
@@ -60,12 +68,18 @@ public class EnemyAttack : MonoBehaviour
         GameObject projectilePrefab = FindObjectOfType<GameManager>().GetPrefab("Projectile");
         //FindObjectOfType<GameManager>().PlaySound("TestSFX", GameManager.MixerGroup.SFX);
         yield return new WaitForSeconds(chargeTime1);
+        //TODO: SOUND CHARGE ATTACK
         if (playerPosition == null)
         {
             yield break;
         }
         Vector3 playerPos = playerPosition.position;
         yield return new WaitForSeconds(chargeTime2);
+
+        if (!canAttack)
+        {
+            yield break;
+        }
 
         Vector3 direction = new Vector3(
             playerPos.x - firePoint.position.x,
