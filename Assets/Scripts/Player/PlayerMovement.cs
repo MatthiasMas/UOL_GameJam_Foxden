@@ -4,16 +4,19 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public Rigidbody player;
-    public Animator animator;
-    public float movementSpeed = 2f;
-    private Vector3 input;
+    [SerializeField]
+    private Rigidbody player;
+    [SerializeField]
+    private Animator animator;
+    [SerializeField]
+    private float movementSpeed = 2f;
     [SerializeField]
     private FogGeneration fog;
 
     private Vector2 lastPlayerPos = new Vector2(0f, 0f);
-    [HideInInspector]
-    public Vector2 deltaOffset = new Vector2(0f, 0f);
+    private Vector2 deltaOffset = new Vector2(0f, 0f);
+    private Vector3 input;
+
     
     void Update()
     {
@@ -32,7 +35,11 @@ public class PlayerMovement : MonoBehaviour
     
     void FixedUpdate()
     {
-        this.player.MovePosition(this.player.position + (this.input * this.movementSpeed * Time.fixedDeltaTime));
+        this.player.MovePosition(this.player.position + (this.input * (this.movementSpeed * Time.fixedDeltaTime)));
     }
-    
+
+    public Vector2 getDeltaOffset()
+    {
+        return this.deltaOffset;
+    }
 }

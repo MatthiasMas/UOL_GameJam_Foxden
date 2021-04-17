@@ -68,12 +68,13 @@ public class FogGeneration : MonoBehaviour
 
     Color CalculateColor(int x, int y)
     {
-        float xCoord1 = (float)x / width * scale + offsetX - player.deltaOffset.x;
-        float yCoord1 = (float)y / height * scale + offsetY - player.deltaOffset.y;
+        Vector2 deltaOffset = player.getDeltaOffset();
+        float xCoord1 = (float)x / width * scale + offsetX - deltaOffset.x;
+        float yCoord1 = (float)y / height * scale + offsetY - deltaOffset.y;
         float zCoord1 = timer / fogSpeed;
 
-        float xCoord2 = (float)x / width * scale * 2 + offsetX - player.deltaOffset.x;
-        float yCoord2 = (float)y / height * scale * 2 + offsetY - player.deltaOffset.y;
+        float xCoord2 = (float)x / width * scale * 2 + offsetX - deltaOffset.x;
+        float yCoord2 = (float)y / height * scale * 2 + offsetY - deltaOffset.y;
         float zCoord2 = timer / fogSpeed * 0.8f;
 
 
