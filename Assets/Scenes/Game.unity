@@ -164,12 +164,13 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: TestSFX
     clip: {fileID: 8300000, guid: be6358cbfc4fcd3468cbe9a41d1ba5a3, type: 3}
-    volume: 1
+    volume: 0.3
     pitch: 3
     loop: 0
     source: {fileID: 0}
   prefabs:
   - {fileID: 7057430266319516530, guid: 856a40c2041ef8d44a4fec5e1ecfc15f, type: 3}
+  - {fileID: 2843998687465054374, guid: 4fb9e45207a73694793b85a6d5d069d2, type: 3}
   sprites: []
 --- !u!4 &62062243
 Transform:
