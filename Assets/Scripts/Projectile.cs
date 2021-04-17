@@ -5,6 +5,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
 
+    private SpriteRenderer spriteRenderer;
     private Rigidbody rb;
     private bool hasHit = false;
 
@@ -15,6 +16,7 @@ public class Projectile : MonoBehaviour
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void Start()
@@ -31,6 +33,10 @@ public class Projectile : MonoBehaviour
     public void StartProjectile(Vector3 direction, float projectileSpeed)
     {
         rb.velocity = direction * projectileSpeed;
+        if (Random.Range(0f, 1f) > 0.98f)
+        {
+            spriteRenderer.sprite = FindObjectOfType<GameManager>().GetSprite("TX Village Props_1");
+        }
     }
 
     private void OnTriggerEnter(Collider collision)

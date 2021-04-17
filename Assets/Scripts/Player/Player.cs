@@ -20,6 +20,14 @@ public class Player : MonoBehaviour
         shieldRightEquipped.SetActive(false);
     }
 
+    void Update()
+    {
+        if (this.inventory.hasWeapon() && Input.GetMouseButtonDown(0))
+        {
+            Attack();
+        }
+    }
+
     public void TakeDamage()
     {
         transform.DetachChildren();
@@ -39,6 +47,11 @@ public class Player : MonoBehaviour
             this.inventory.setRightShield(false);
             shieldRightEquipped.SetActive(false);
         }
+    }
+
+    private void Attack()
+    {
+
     }
 
     public bool CollectDebris(string part)
