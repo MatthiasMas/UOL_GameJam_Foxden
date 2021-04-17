@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml;
 using UnityEngine;
+using UnityEngine.TestTools;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -9,9 +11,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private Animator animator;
     [SerializeField]
-    private float movementSpeed = 2f;    
+    private float movementSpeed = 1f;    
     [SerializeField]
-    private float boostSpeed = 4f;
+    private float boostSpeed = 10f;
     [SerializeField]
     private float boostLength = 0.2f;
     [SerializeField]
@@ -31,14 +33,17 @@ public class PlayerMovement : MonoBehaviour
         this.input.x = Input.GetAxisRaw("Horizontal");
         this.input.y = Input.GetAxisRaw("Vertical");
         this.input.z = 0;
+        
+        this.animator.SetFloat("Speed", this.player.velocity.sqrMagnitude);
 
-        this.animator.SetFloat("Horizontal", this.input.x);
-        this.animator.SetFloat("Vertical", this.input.y);
-        this.animator.SetFloat("Speed", this.input.sqrMagnitude);
+        this.deltaOffset = this.lastPlayerPos - (Vector2)this.transform.position;
+        this.lastPlayerPos = this.transform.position;
 
-        deltaOffset = lastPlayerPos - (Vector2)transform.position;
 
-        lastPlayerPos = transform.position;
+        if (this.input.sqrMagnitude > 0.01)
+        {
+            this.rotate(this.input);
+        }
     }
     
     void FixedUpdate()
@@ -58,6 +63,13 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 playerForce = this.input * (Time.fixedDeltaTime * speed);
         this.player.AddForce(playerForce);
+    }
+    
+    private void rotate(Vector2 dir)
+    {
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        Quaternion q = Quaternion.AngleAxis(angle - 90, Vector3.forward);
+        this.transform.rotation = Quaternion.RotateTowards(this.transform.rotation, q, 100 * Time.fixedDeltaTime);
     }
 
     public Vector2 getDeltaOffset()
