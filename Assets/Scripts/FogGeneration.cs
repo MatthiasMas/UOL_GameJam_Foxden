@@ -13,12 +13,11 @@ public class FogGeneration : MonoBehaviour
 
     public float fogSpeed = 30f;
 
-    //public AnimationCurve curve;
-
-    public float timer = 0f;
-    public float renderTimer = 0f;
+    private float timer = 0f;
+    private float renderTimer = 0f;
 
     private OpenSimplexNoise simplex;
+    public PlayerMovement player;
 
     void Start()
     {
@@ -34,6 +33,12 @@ public class FogGeneration : MonoBehaviour
             RenderTexture();
             renderTimer = 0f;
         }
+    }
+
+    private void FixedUpdate()
+    {
+        offsetX = player.gameObject.transform.position.x;
+        offsetY = player.gameObject.transform.position.y;
     }
 
     void RenderTexture()
@@ -63,13 +68,19 @@ public class FogGeneration : MonoBehaviour
 
     Color CalculateColor(int x, int y)
     {
-        float xCoord = (float)x / width * scale +  offsetX;
-        float yCoord = (float)y / height * scale + offsetY;
-        float zCoord = timer / fogSpeed;
+        float xCoord1 = (float)x / width * scale + offsetX - player.deltaOffset.x;
+        float yCoord1 = (float)y / height * scale + offsetY - player.deltaOffset.y;
+        float zCoord1 = timer / fogSpeed;
+
+        float xCoord2 = (float)x / width * scale * 2 + offsetX - player.deltaOffset.x;
+        float yCoord2 = (float)y / height * scale * 2 + offsetY - player.deltaOffset.y;
+        float zCoord2 = timer / fogSpeed * 0.8f;
+
 
         //float sample = Mathf.PerlinNoise(xCoord, yCoord);
         //float sampleTime = Mathf.PerlinNoise(0, zCoord);
-        float sample = (float)simplex.Evaluate(xCoord, yCoord, zCoord);
+        float sample = (float)simplex.Evaluate(xCoord1, yCoord1, zCoord1);
+        //sample += (float)simplex.Evaluate(xCoord2, yCoord2, zCoord2);
 
         float sampleY;
 
@@ -79,10 +90,8 @@ public class FogGeneration : MonoBehaviour
         }
         else
         {
-            //sampleY = curve.Evaluate(sample);
             sampleY = sample;
-            return new Color(sampleY, sampleY, sampleY);
+            return new Color(sampleY, sampleY, sampleY, 0.4f);
         }
-        
     }
 }

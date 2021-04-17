@@ -8,6 +8,12 @@ public class PlayerMovement : MonoBehaviour
     public Animator animator;
     public float movementSpeed = 2f;
     private Vector2 input;
+    [SerializeField]
+    private FogGeneration fog;
+
+    private Vector2 lastPlayerPos = new Vector2(0f, 0f);
+    [HideInInspector]
+    public Vector2 deltaOffset = new Vector2(0f, 0f);
     
     void Update()
     {
@@ -17,6 +23,10 @@ public class PlayerMovement : MonoBehaviour
         this.animator.SetFloat("Horizontal", this.input.x);
         this.animator.SetFloat("Vertical", this.input.y);
         this.animator.SetFloat("Speed", this.input.sqrMagnitude);
+
+        deltaOffset = lastPlayerPos - (Vector2)transform.position;
+
+        lastPlayerPos = transform.position;
     }
     
     void FixedUpdate()
