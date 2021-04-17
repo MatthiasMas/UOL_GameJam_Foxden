@@ -196,6 +196,7 @@ GameObject:
   m_Component:
   - component: {fileID: 359763082}
   - component: {fileID: 359763083}
+  - component: {fileID: 359763084}
   m_Layer: 0
   m_Name: EnemySpawner
   m_TagString: Untagged
@@ -232,6 +233,18 @@ MonoBehaviour:
   minSpawnDistance: 5
   maxSpawnDistance: 10
   maxEnemyCount: 10
+--- !u!114 &359763084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 359763081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea1a10a327214898881bfc1e7c6e7a8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1352345976
 GameObject:
   m_ObjectHideFlags: 0
@@ -243,6 +256,7 @@ GameObject:
   - component: {fileID: 1352345979}
   - component: {fileID: 1352345978}
   - component: {fileID: 1352345977}
+  - component: {fileID: 1352345980}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -315,6 +329,18 @@ Transform:
   m_Father: {fileID: 1948748060}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1352345980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1352345976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea1a10a327214898881bfc1e7c6e7a8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1397806649
 GameObject:
   m_ObjectHideFlags: 0
@@ -423,6 +449,7 @@ GameObject:
   - component: {fileID: 1700695169}
   - component: {fileID: 1700695168}
   - component: {fileID: 1700695167}
+  - component: {fileID: 1700695171}
   m_Layer: 0
   m_Name: Fog
   m_TagString: Untagged
@@ -513,6 +540,18 @@ Transform:
   m_Father: {fileID: 1948748060}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1700695171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1700695166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea1a10a327214898881bfc1e7c6e7a8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1948748055
 GameObject:
   m_ObjectHideFlags: 0
@@ -544,7 +583,7 @@ Animator:
   m_GameObject: {fileID: 1948748055}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c84ebb11c8d8647709227fbc654437d1, type: 2}
+  m_Controller: {fileID: 9100000, guid: 56c0947f6d86cd6119d6aec1468a0a9c, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -610,7 +649,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 1667406966253564929, guid: ff08e0228f4bff94491e52075daed77d, type: 3}
+  m_Sprite: {fileID: 1283397403354498204, guid: f06f55560eace4fc0b85fee8b3df873f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -637,6 +676,8 @@ MonoBehaviour:
   animator: {fileID: 1948748056}
   movementSpeed: 1
   boostSpeed: 10
+  boostLength: 0.2
+  timeBetweenBoosts: 2.5
   fog: {fileID: 1700695167}
 --- !u!4 &1948748060
 Transform:
