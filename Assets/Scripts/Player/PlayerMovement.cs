@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Xml;
 using UnityEngine;
 using UnityEngine.TestTools;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -37,6 +38,12 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        if (this.playerObject.getInventory().isFull())
+        {
+            //@TODO: Add correct Finished scene
+            SceneManager.LoadScene(2);
+        }
+        
         this.input.x = Input.GetAxisRaw("Horizontal");
         this.input.y = Input.GetAxisRaw("Vertical");
         this.input.z = 0;
@@ -61,14 +68,19 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey("space") && time > (this.lastBoost + this.boostLength + this.timeBetweenBoosts))
         {
             this.lastBoost = time;
+            this.animator.SetBool("Boost", true);
         }
 
         if (time >= this.lastBoost && time <= (this.lastBoost + this.boostLength))
         {
             speed = this.boostSpeed * this.speedMultiplier;
         }
+        else
+        {
+            this.animator.SetBool("Boost", false);
+        }
 
-        speed -= 10 * this.playerObject.getInventory().count();
+        speed -= 20 * this.playerObject.getInventory().count();
 
         Vector3 playerForce = this.input * (Time.fixedDeltaTime * speed);
         this.player.AddForce(playerForce);
