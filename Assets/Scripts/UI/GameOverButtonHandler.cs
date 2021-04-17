@@ -7,9 +7,6 @@ public class GameOverButtonHandler : MonoBehaviour
 {
     public void restartGame()
     {
-        
-        Debug.Log("HAHAHAHAHAHAHAHAH");
-        
         SceneManager.LoadScene(1);
     }
 }
