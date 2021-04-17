@@ -61,6 +61,7 @@ public class EnemyMovement : MonoBehaviour
             transform.position.x + dir.x * moveSpeed, 
             transform.position.y + dir.y * moveSpeed);
         transform.position = newPos;
+        // TODO: ENEMY MOVEMENT SOUND
     }
 
     private void GenerateNewGoalPosition()
