@@ -45,7 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 315e25bad2f1b83428edb4e12d91f01e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 0}
+  enemyMovement: {fileID: 0}
+  enemyAttack: {fileID: 0}
 --- !u!1 &1603383287588701304
 GameObject:
   m_ObjectHideFlags: 0
@@ -172,7 +173,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 315e25bad2f1b83428edb4e12d91f01e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 7057430266319516431}
+  enemyMovement: {fileID: 7057430266319516431}
+  enemyAttack: {fileID: 3418218753638830163}
 --- !u!1 &4266651006842634331
 GameObject:
   m_ObjectHideFlags: 0
@@ -184,8 +186,8 @@ GameObject:
   - component: {fileID: 5500172411347774473}
   - component: {fileID: 4032654729353652577}
   - component: {fileID: 3178874549093857761}
-  - component: {fileID: 625947820991339174}
   - component: {fileID: 8867364668832023439}
+  - component: {fileID: 8897468575518628257}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -257,19 +259,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &625947820991339174
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4266651006842634331}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 315e25bad2f1b83428edb4e12d91f01e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemy: {fileID: 7057430266319516431}
 --- !u!135 &8867364668832023439
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -283,6 +272,19 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8897468575518628257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4266651006842634331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdca220a5ad0b224db118893906527fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyMovement: {fileID: 7057430266319516431}
 --- !u!1 &7057430266319516530
 GameObject:
   m_ObjectHideFlags: 0
@@ -295,6 +297,7 @@ GameObject:
   - component: {fileID: 7057430266319516428}
   - component: {fileID: 7057430266319516431}
   - component: {fileID: 6630193943323460271}
+  - component: {fileID: 3418218753638830163}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -399,3 +402,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   despawnDistance: 15
+--- !u!114 &3418218753638830163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7057430266319516530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11a5b07e703c3474c8d3d61415212e23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canAttack: 0
+  attackRate: 1

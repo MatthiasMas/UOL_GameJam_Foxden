@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class VisionCheck : MonoBehaviour
+public class VisionCheckCone : MonoBehaviour
 {
 
-    public EnemyMovement enemy;
+    public EnemyMovement enemyMovement;
+    public EnemyAttack enemyAttack;
 
     // Start is called before the first frame update
     void Start()
@@ -23,8 +24,8 @@ public class VisionCheck : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            print(gameObject.name + " collided with player");
-            enemy.isInFOV = true;
+            enemyMovement.isInFOV = true;
+            enemyAttack.canAttack = true;
         }
     }
 
@@ -32,8 +33,8 @@ public class VisionCheck : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            print(gameObject.name + "stop colliding with player");
-            enemy.isInFOV = false;
+            enemyMovement.isInFOV = false;
+            enemyAttack.canAttack = false;
         }
     }
 }

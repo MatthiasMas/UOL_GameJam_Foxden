@@ -11,15 +11,17 @@ public class FieldOfView : MonoBehaviour
     [SerializeField]
     private float viewDistance = 3f;
 
+    private Vector3 origin = new Vector3(0.35f, -0.20f, 0);
+    private Mesh mesh;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        Mesh mesh = new Mesh();
+        mesh = new Mesh();
         GetComponent<MeshFilter>().mesh = mesh;
         GetComponent<MeshCollider>().sharedMesh = mesh;
 
-        Vector3 origin = new Vector3(0.35f, -0.20f, 0);
         int rayCount = 30;
         float angle = 0f;
         float angleIncrease = fov / rayCount;
@@ -47,7 +49,7 @@ public class FieldOfView : MonoBehaviour
             }
 
             vertexIndex++;
-            
+
             angle -= angleIncrease;
         }
 
@@ -55,6 +57,7 @@ public class FieldOfView : MonoBehaviour
         mesh.vertices = vertices;
         mesh.uv = uv;
         mesh.triangles = triangles;
+
     }
 
     // Update is called once per frame
