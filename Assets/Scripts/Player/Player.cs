@@ -64,6 +64,12 @@ public class Player : MonoBehaviour
 
     private void Attack()
     {
+        if (weaponUses <= 0)
+        {
+            this.inventory.setWeapon(false);
+            return;
+        }
+
         Vector3 direction = new Vector3(
             transform.position.x - firePoint.position.x,
             transform.position.y - firePoint.position.y,
@@ -75,6 +81,8 @@ public class Player : MonoBehaviour
         GameObject projectilePrefab = FindObjectOfType<GameManager>().GetPrefab("Projectile");
         GameObject projectile = Instantiate(projectilePrefab, firePoint.position, Quaternion.Euler(0f, 0f, rotation_z));
         projectile.GetComponent<Projectile>().StartProjectile(gameObject, -directionVector, projectileSpeed);
+
+        weaponUses--;
     }
 
     public bool CollectDebris(string part)
