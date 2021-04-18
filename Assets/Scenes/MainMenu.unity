@@ -300,6 +300,7 @@ GameObject:
   - component: {fileID: 58552373}
   - component: {fileID: 58552375}
   - component: {fileID: 58552374}
+  - component: {fileID: 58552376}
   m_Layer: 0
   m_Name: Thang
   m_TagString: Untagged
@@ -323,7 +324,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000030518, y: 52.785034}
+  m_AnchoredPosition: {x: -292, y: 152.79}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &58552374
@@ -346,7 +347,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 31918d2099b32a4af809f5676de5d65a, type: 3}
+  m_Sprite: {fileID: 6039095355750214340, guid: 1c2eb6b748a7c95a0b54c3e69b88c37a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -364,6 +365,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 58552372}
   m_CullTransparentMesh: 1
+--- !u!95 &58552376
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 58552372}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5024266aedb970d7da799b478150d5b9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &63990388
 GameObject:
   m_ObjectHideFlags: 0
@@ -1385,6 +1405,7 @@ GameObject:
   - component: {fileID: 491792385}
   - component: {fileID: 491792387}
   - component: {fileID: 491792386}
+  - component: {fileID: 491792388}
   m_Layer: 0
   m_Name: Hero
   m_TagString: Untagged
@@ -1408,7 +1429,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -193, y: 52.785}
+  m_AnchoredPosition: {x: -595, y: 152.79}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &491792386
@@ -1431,7 +1452,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 39e64371f268deac2900f2aa3b9bc26b, type: 3}
+  m_Sprite: {fileID: 6466066316853838502, guid: 46a44f9269e0d5637887da0a7c13740f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1449,6 +1470,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 491792384}
   m_CullTransparentMesh: 1
+--- !u!95 &491792388
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 491792384}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d3a12707406a7d939a5c508cbdab5341, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &510306494
 GameObject:
   m_ObjectHideFlags: 0
@@ -5028,8 +5068,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 4, y: -547.2}
-  m_SizeDelta: {x: 1075.7, y: 298.5518}
+  m_AnchoredPosition: {x: 4, y: -646.8659}
+  m_SizeDelta: {x: 1075.7, y: 497.8837}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1405462673
 GameObject:
@@ -6226,7 +6266,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1676413180
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6522,8 +6562,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -22, y: -49.526}
-  m_SizeDelta: {x: 950.7161, y: 194.7444}
+  m_AnchoredPosition: {x: -22, y: 17.157}
+  m_SizeDelta: {x: 950.7161, y: 260.7103}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1703928303
 MonoBehaviour:
@@ -6558,18 +6598,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'We dedicate this Game to our fallen Friends
-
-
-    Roobin Hood
-
-    and
-
-    Kunel
-    aka Thang
-
-
-'
+  m_Text: "We dedicate this Game to our fallen Friends\n\n\n\n\n\n  Roobin Hood              
+    Kunel aka Thang\n\n"
 --- !u!222 &1703928304
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6937,7 +6967,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1758853935
 RectTransform:
   m_ObjectHideFlags: 0
