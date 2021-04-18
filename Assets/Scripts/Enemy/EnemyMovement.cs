@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
 
-    public float moveSpeed;
+    public float baseSpeed;
+    private float moveSpeed;
+    private float speedMultiplier;
 
     private Transform playerPosition;
 
@@ -20,6 +23,8 @@ public class EnemyMovement : MonoBehaviour
     public bool isInFOV;
     public bool wasInFOV;
 
+    private float updateTimer = 2f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,14 +35,26 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (playerPosition == null)
+        {
+            return;
+        }
+
+        speedMultiplier = 1f + 0.1f * playerPosition.gameObject.GetComponent<Player>().getInventory().count();
+        moveSpeed = baseSpeed * speedMultiplier;
+
+        updateTimer -= Time.deltaTime;
+        if (updateTimer < 0f)
+        {
+            updateTimer = 2f;
+            UpdateGoalPosition();
+        }
+
         Vector2 dir = Vector2.zero;
 
         if (isInFOV)                                                                            // the enemy has seen the player and should move towards him
         {
-            if (playerPosition != null)
-            {
-                dir = (playerPosition.position - transform.position).normalized;
-            }
+            dir = (playerPosition.position - transform.position).normalized;
         }
         else
         {
@@ -59,6 +76,12 @@ public class EnemyMovement : MonoBehaviour
             transform.position.y + dir.y * moveSpeed);
         transform.position = newPos;
         // TODO: ENEMY MOVEMENT SOUND
+    }
+
+    private void UpdateGoalPosition()
+    {
+        goalPosition.x += Random.Range(-4f, 4f);
+        goalPosition.y += Random.Range(-4f, 4f);
     }
 
     private void GenerateNewGoalPosition()

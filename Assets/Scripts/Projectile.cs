@@ -42,6 +42,11 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
+        if (initiator == null)
+        {
+            Destroy(gameObject);
+        }
+
         if (initiator.tag == "Enemy")
         {
             if (collision.tag == "ShieldEquipped" && !hasHit)

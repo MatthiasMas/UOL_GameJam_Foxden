@@ -29,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 input;
     private float speedMultiplier = 150f;
     private double lastBoost = 0;
+    private float highscoreTimer = 0f;
 
 
     private void Start()
@@ -41,6 +42,7 @@ public class PlayerMovement : MonoBehaviour
         if (this.playerObject.getInventory().isFull())
         {
             //@TODO: Add correct Finished scene
+            AddHighscoreEntry(highscoreTimer, "AAA");
             SceneManager.LoadScene(2);
         }
         
@@ -59,9 +61,11 @@ public class PlayerMovement : MonoBehaviour
             this.rotate(this.input);
         }
     }
-    
+
     void FixedUpdate()
     {
+        highscoreTimer += Time.fixedDeltaTime;
+
         float speed = this.movementSpeed * this.speedMultiplier;
         double time = Time.timeAsDouble;
         
@@ -96,5 +100,28 @@ public class PlayerMovement : MonoBehaviour
     public Vector2 getDeltaOffset()
     {
         return this.deltaOffset;
+    }
+
+    public void AddHighscoreEntry(float score, string name)
+    {
+        HighscoreEntry highscoreEntry = new HighscoreEntry { score = score, name = name };
+
+        //Load saved Highscores
+        string jsonString = PlayerPrefs.GetString("highscoreTable");
+        Highscores highscores = JsonUtility.FromJson<Highscores>(jsonString);
+
+        if (highscores == null)
+        {
+            highscores = new Highscores();
+            highscores.highscoreEntryList = new List<HighscoreEntry>();
+        }
+
+        //Add new entry to Highscores
+        highscores.highscoreEntryList.Add(highscoreEntry);
+
+        //Save updates Highscores
+        string json = JsonUtility.ToJson(highscores);
+        PlayerPrefs.SetString("highscoreTable", json);
+        PlayerPrefs.Save();
     }
 }

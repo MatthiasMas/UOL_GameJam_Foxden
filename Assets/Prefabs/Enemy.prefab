@@ -373,7 +373,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 973b906549f8586479130adc56553cb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0.002
+  baseSpeed: 0.01
   goalPosition: {x: 0, y: 0}
   goalReachedDistance: 0.5
   newGoalDistance: 10
