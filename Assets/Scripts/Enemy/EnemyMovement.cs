@@ -72,6 +72,6 @@ public class EnemyMovement : MonoBehaviour
     {
         var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         var q = Quaternion.AngleAxis(angle - 90, Vector3.forward);
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, q, 100 * Time.deltaTime);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, q, 100 * Time.fixedDeltaTime);
     }
 }

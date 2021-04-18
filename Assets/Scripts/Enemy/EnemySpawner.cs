@@ -4,19 +4,15 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public float minSpawnDistance;
-    public float maxSpawnDistance;
-
+    [SerializeField]
+    private float blueSparrowChance = 0.2f;
+    [SerializeField]
+    private float minSpawnDistance;
+    [SerializeField]
+    private float maxSpawnDistance;
     [SerializeField]
     private int maxEnemyCount = 10;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if (GameObject.FindGameObjectsWithTag("Enemy").Length < maxEnemyCount)
@@ -27,7 +23,13 @@ public class EnemySpawner : MonoBehaviour
 
     void spawnNewEnemy()
     {
-        GameObject enemyPrefab = FindObjectOfType<GameManager>().GetPrefab("Enemy");
+        GameObject enemyPrefab = FindObjectOfType<GameManager>().GetPrefab("Enemy_GreenFalcon");
+        
+        if (Random.Range(0f, 1f) > 1f - this.blueSparrowChance)
+        {
+            enemyPrefab = FindObjectOfType<GameManager>().GetPrefab("Enemy_BlueSparrow");
+        }
+        
         var position = transform.position;
 
         while (Vector2.Distance(position, transform.position) < minSpawnDistance)
