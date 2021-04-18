@@ -34,7 +34,7 @@ public class Enemy : MonoBehaviour
         if (collision.tag == "Player")
         {
             Player player = collision.gameObject.GetComponent<Player>();
-            // TODO: SOUND EXPLOSION
+            FindObjectOfType<GameManager>().PlaySound("playerhit", GameManager.MixerGroup.SFX);
             player.TakeDamage();
         }
     }

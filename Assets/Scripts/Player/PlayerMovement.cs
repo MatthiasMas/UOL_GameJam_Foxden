@@ -43,6 +43,7 @@ public class PlayerMovement : MonoBehaviour
         {
             //@TODO: Add correct Finished scene
             AddHighscoreEntry(highscoreTimer, "AAA");
+            FindObjectOfType<GameManager>().PlaySound("victory", GameManager.MixerGroup.SFX);
             SceneManager.LoadScene(2);
         }
         
