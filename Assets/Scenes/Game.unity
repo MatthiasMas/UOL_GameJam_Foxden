@@ -302,6 +302,7 @@ MonoBehaviour:
     source: {fileID: 0}
   prefabs:
   - {fileID: 7057430266319516530, guid: 856a40c2041ef8d44a4fec5e1ecfc15f, type: 3}
+  - {fileID: 8007218270827727965, guid: 3913601eba19cddffa0225a541de01e6, type: 3}
   - {fileID: 2843998687465054374, guid: 4fb9e45207a73694793b85a6d5d069d2, type: 3}
   - {fileID: 4916090665251387200, guid: 4adb88fd7aa90e54993058a73ed33794, type: 3}
   - {fileID: 3999618497111559124, guid: 36d1120412804674e8c30ec748d6928d, type: 3}
@@ -451,6 +452,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b0767854e842bd4b943e9927bcf9dfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blueSparrowChance: 0.2
   minSpawnDistance: 5
   maxSpawnDistance: 10
   maxEnemyCount: 10
@@ -2031,7 +2033,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1700695167
 MonoBehaviour:
   m_ObjectHideFlags: 0
