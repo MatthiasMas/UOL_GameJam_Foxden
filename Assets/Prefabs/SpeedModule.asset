@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   partName: SpeedModule
   sprite: {fileID: 0}
-  minSpawnDistance: 25
-  maxSpawnDistance: 35
-  distanceBeforeNextSpawn: 45
+  minSpawnDistance: 18
+  maxSpawnDistance: 24
+  distanceBeforeNextSpawn: 30

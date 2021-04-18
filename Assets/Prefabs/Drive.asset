@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   partName: Drive
   sprite: {fileID: 0}
-  minSpawnDistance: 20
-  maxSpawnDistance: 30
-  distanceBeforeNextSpawn: 45
+  minSpawnDistance: 12
+  maxSpawnDistance: 15
+  distanceBeforeNextSpawn: 18
