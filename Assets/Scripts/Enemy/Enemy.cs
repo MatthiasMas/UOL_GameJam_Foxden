@@ -6,27 +6,27 @@ public class Enemy : MonoBehaviour
 {
 
     private Transform playerPosition;
-
+    [SerializeField]
+    private float despawnDistance;
 
     // Start is called before the first frame update
     void Start()
     {
-        if (playerPosition == null)
-        {
-            return;
-        }
         playerPosition = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-    }
+        if (playerPosition == null)
+        {
+            return;
+        }
 
-    private void OnBecameInvisible()
-    {
-        Destroy(gameObject);
+        if (Vector2.Distance(transform.position, playerPosition.position) >= despawnDistance)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnTriggerStay(Collider collision)
