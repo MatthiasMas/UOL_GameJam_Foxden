@@ -28,6 +28,7 @@ public class Debris : MonoBehaviour
         {
             if (player.CollectDebris(gameObject.tag))
             {
+                FindObjectOfType<GameManager>().PlaySound("collect", GameManager.MixerGroup.SFX);
                 Destroy(gameObject);
             }
         }

@@ -72,6 +72,7 @@ public class Projectile : MonoBehaviour
         if (initiator == null)
         {
             Destroy(gameObject);
+            return;
         }
 
         if (initiator.tag == "Enemy")
@@ -81,6 +82,14 @@ public class Projectile : MonoBehaviour
                 hasHit = true;
                 FindObjectOfType<GameManager>().PlaySound("shieldhit", GameManager.MixerGroup.SFX);
                 this.triggerExplosion(collision.gameObject);
+                player.HitShield(collision.gameObject.name);
+                Destroy(gameObject);
+            }
+
+            if (collision.tag == "PlasmaShield" && !hasHit)
+            {
+                hasHit = true;
+                FindObjectOfType<GameManager>().PlaySound("shieldhit", GameManager.MixerGroup.SFX);
                 player.HitShield(collision.gameObject.name);
                 Destroy(gameObject);
             }

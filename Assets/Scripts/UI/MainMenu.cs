@@ -8,7 +8,12 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     public AudioMixer masterMixer;
-    
+
+    private void Start()
+    {
+        GameObject.Find("HighscoresMenu").SetActive(false);
+    }
+
     public void PlayGame()
     {
         SceneManager.LoadScene(1);
@@ -16,6 +21,7 @@ public class MainMenu : MonoBehaviour
 
     public void QuitGame()
     {
+        FindObjectOfType<GameManager>().PlaySound("button", GameManager.MixerGroup.SFX);
         Application.Quit();
     }
 
@@ -33,5 +39,10 @@ public class MainMenu : MonoBehaviour
     {
         masterMixer.SetFloat("SFXVolume", Mathf.Log10(audioLevel) * 20);
         FindObjectOfType<GameManager>().PlaySound("blaster2", GameManager.MixerGroup.SFX);
+    }
+
+    public void ButtonPressed()
+    {
+        FindObjectOfType<GameManager>().PlaySound("button", GameManager.MixerGroup.SFX);
     }
 }
