@@ -351,6 +351,7 @@ MonoBehaviour:
   - {fileID: 1179411738616777708, guid: 5e5e0e8dbb67f7aa9883fee461a464e0, type: 3}
   - {fileID: 1420852548030163100, guid: cc72fef39f3ae6c47bcec4a6a6ec6ede, type: 3}
   - {fileID: 3509650986220994591, guid: 9c58c659c15358276a95b9234a7ab58d, type: 3}
+  - {fileID: 7456202834884960724, guid: d2069d74d7b6e4418a3bb59c75c2b567, type: 3}
   sprites:
   - {fileID: 9202163618114184290, guid: 0a1444dc8a4b7eb46ad23c56f119ad76, type: 3}
 --- !u!4 &62062243
@@ -384,7 +385,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!331 &136211509
 SpriteMask:
   m_ObjectHideFlags: 0
@@ -2170,7 +2171,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1700695167
 MonoBehaviour:
   m_ObjectHideFlags: 0

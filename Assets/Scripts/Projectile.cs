@@ -80,6 +80,7 @@ public class Projectile : MonoBehaviour
             {
                 hasHit = true;
                 FindObjectOfType<GameManager>().PlaySound("shieldhit", GameManager.MixerGroup.SFX);
+                this.triggerExplosion(collision.gameObject);
                 player.HitShield(collision.gameObject.name);
                 Destroy(gameObject);
             }
@@ -88,6 +89,7 @@ public class Projectile : MonoBehaviour
             {
                 hasHit = true;
                 FindObjectOfType<GameManager>().PlaySound("playerhit", GameManager.MixerGroup.SFX);
+                this.triggerExplosion(collision.gameObject);
                 player.TakeDamage();
                 Destroy(gameObject);
             }
@@ -97,13 +99,20 @@ public class Projectile : MonoBehaviour
             if (collision.tag == "Enemy")
             {
                 FindObjectOfType<GameManager>().PlaySound("playerhit", GameManager.MixerGroup.SFX);
+                this.triggerExplosion(collision.gameObject);
+                
                 Destroy(collision.gameObject);
                 Destroy(gameObject);
             }
         }
-        
+    }
 
-        
+    private void triggerExplosion(GameObject gObject)
+    {
+        GameObject enemyPrefab = FindObjectOfType<GameManager>().GetPrefab("Explosion");
+        Vector3 position = new Vector3(gObject.transform.position.x, gObject.transform.position.y, 0);
+                
+        Instantiate(enemyPrefab, position, Quaternion.identity);
     }
 
     private void OnBecameInvisible()
