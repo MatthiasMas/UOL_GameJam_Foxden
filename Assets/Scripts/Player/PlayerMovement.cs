@@ -21,6 +21,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private float timeBetweenBoosts = 2.5f;
     [SerializeField]
+    private float driveSpeedAddition = 25f;
+    [SerializeField]
     private FogGeneration fog;
 
     private Player playerObject;
@@ -85,6 +87,11 @@ public class PlayerMovement : MonoBehaviour
             this.animator.SetBool("Boost", false);
         }
 
+        if (this.playerObject.getInventory().hasDrive())
+        {
+            speed += this.driveSpeedAddition;
+        }
+        
         speed -= 20 * this.playerObject.getInventory().count();
 
         Vector3 playerForce = this.input * (Time.fixedDeltaTime * speed);
