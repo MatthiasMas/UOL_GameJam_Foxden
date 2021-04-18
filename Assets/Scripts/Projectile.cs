@@ -72,11 +72,20 @@ public class Projectile : MonoBehaviour
         if (initiator == null)
         {
             Destroy(gameObject);
+            return;
         }
 
         if (initiator.tag == "Enemy")
         {
             if (collision.tag == "ShieldEquipped" && !hasHit)
+            {
+                hasHit = true;
+                FindObjectOfType<GameManager>().PlaySound("shieldhit", GameManager.MixerGroup.SFX);
+                player.HitShield(collision.gameObject.name);
+                Destroy(gameObject);
+            }
+
+            if (collision.tag == "PlasmaShield" && !hasHit)
             {
                 hasHit = true;
                 FindObjectOfType<GameManager>().PlaySound("shieldhit", GameManager.MixerGroup.SFX);

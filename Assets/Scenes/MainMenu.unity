@@ -513,6 +513,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1758853936}
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+        m_MethodName: ButtonPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!114 &104618203
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -551,6 +563,136 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 104618200}
   m_CullTransparentMesh: 1
+--- !u!1 &112705334
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 112705336}
+  - component: {fileID: 112705335}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &112705335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 112705334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbf2477bd3d56e44b9819e9700511951, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  masterAudioMixerGroup: {fileID: 24300002, guid: eb99ba0676219304da15f40b3c5b2761, type: 2}
+  musicAudioMixerGroup: {fileID: 581087155067862768, guid: eb99ba0676219304da15f40b3c5b2761, type: 2}
+  sfxAudioMixerGroup: {fileID: -5698045529642738292, guid: eb99ba0676219304da15f40b3c5b2761, type: 2}
+  sounds:
+  - name: blaster1
+    clip: {fileID: 8300000, guid: 1ff1520e748ca904d9f3e5257efb164d, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: blaster2
+    clip: {fileID: 8300000, guid: d22c88d2f34efe840aecf2161cb1e62e, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: blaster3
+    clip: {fileID: 8300000, guid: 0f634a82ba13fe647b0895c34d457cb9, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: arrow
+    clip: {fileID: 8300000, guid: 086433631f25f3049a4700eb2caee49b, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: blaster4
+    clip: {fileID: 8300000, guid: 79d9785a964b0084d8f4927291e6b0ad, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: charge
+    clip: {fileID: 8300000, guid: a8eb8159c0591a048b70eaf0401434fd, type: 3}
+    volume: 0.15
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: shieldhit
+    clip: {fileID: 8300000, guid: 8bdbc0676d312b24e83a0073aa1d10bd, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: maintheme
+    clip: {fileID: 8300000, guid: 631b82b4fddf57245ba643dc69ec1935, type: 3}
+    volume: 0.02
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: victory
+    clip: {fileID: 8300000, guid: 5d107192718c10741aa9006789fc10d1, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: playerhit
+    clip: {fileID: 8300000, guid: 37d4162f5f01fc34ea5453a178216e35, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: collect
+    clip: {fileID: 8300000, guid: 401cb21c54313074baa60f80e113c153, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: button
+    clip: {fileID: 8300000, guid: 7e96d60cabc05c449a84517f6e74b82b, type: 3}
+    volume: 0.4
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  prefabs:
+  - {fileID: 7057430266319516530, guid: 856a40c2041ef8d44a4fec5e1ecfc15f, type: 3}
+  - {fileID: 8007218270827727965, guid: 3913601eba19cddffa0225a541de01e6, type: 3}
+  - {fileID: 2843998687465054374, guid: 4fb9e45207a73694793b85a6d5d069d2, type: 3}
+  - {fileID: 4916090665251387200, guid: 4adb88fd7aa90e54993058a73ed33794, type: 3}
+  - {fileID: 3999618497111559124, guid: 36d1120412804674e8c30ec748d6928d, type: 3}
+  - {fileID: 1179411738616777708, guid: 5e5e0e8dbb67f7aa9883fee461a464e0, type: 3}
+  - {fileID: 1420852548030163100, guid: cc72fef39f3ae6c47bcec4a6a6ec6ede, type: 3}
+  - {fileID: 3509650986220994591, guid: 9c58c659c15358276a95b9234a7ab58d, type: 3}
+  sprites:
+  - {fileID: 9202163618114184290, guid: 0a1444dc8a4b7eb46ad23c56f119ad76, type: 3}
+--- !u!4 &112705336
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 112705334}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &128092544
 GameObject:
   m_ObjectHideFlags: 0
@@ -954,6 +1096,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1758853936}
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+        m_MethodName: ButtonPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!114 &183921895
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1223,6 +1377,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1758853936}
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+        m_MethodName: ButtonPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!114 &261271962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2309,6 +2475,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1758853936}
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+        m_MethodName: ButtonPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!114 &653153781
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3361,6 +3539,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1758853936}
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+        m_MethodName: ButtonPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!114 &811958260
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3586,7 +3776,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &860570292
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3609,69 +3799,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1261, y: 591}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &877859583
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 877859585}
-  - component: {fileID: 877859584}
-  m_Layer: 0
-  m_Name: GameManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &877859584
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 877859583}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbf2477bd3d56e44b9819e9700511951, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  masterAudioMixerGroup: {fileID: 24300002, guid: eb99ba0676219304da15f40b3c5b2761, type: 2}
-  musicAudioMixerGroup: {fileID: 581087155067862768, guid: eb99ba0676219304da15f40b3c5b2761, type: 2}
-  sfxAudioMixerGroup: {fileID: -5698045529642738292, guid: eb99ba0676219304da15f40b3c5b2761, type: 2}
-  sounds:
-  - name: TestMusic
-    clip: {fileID: 8300000, guid: cf6611adaab43a04eb46c0b279658fcb, type: 3}
-    volume: 1
-    pitch: 3
-    loop: 0
-    source: {fileID: 0}
-  - name: TestSFX
-    clip: {fileID: 8300000, guid: be6358cbfc4fcd3468cbe9a41d1ba5a3, type: 3}
-    volume: 0.3
-    pitch: 3
-    loop: 0
-    source: {fileID: 0}
-  prefabs:
-  - {fileID: 7057430266319516530, guid: 856a40c2041ef8d44a4fec5e1ecfc15f, type: 3}
-  - {fileID: 2843998687465054374, guid: 4fb9e45207a73694793b85a6d5d069d2, type: 3}
-  sprites: []
---- !u!4 &877859585
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 877859583}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &978310287
 GameObject:
   m_ObjectHideFlags: 0
@@ -7342,6 +7469,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1758853936}
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+        m_MethodName: ButtonPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!114 &1857641102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7785,6 +7924,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1758853936}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
         m_MethodName: PlayGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+      - m_Target: {fileID: 1758853936}
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+        m_MethodName: ButtonPressed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

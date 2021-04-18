@@ -11,6 +11,7 @@ TagManager:
   - ShieldEquipped
   - SpeedModule
   - Drive
+  - PlasmaShield
   layers:
   - Default
   - TransparentFX

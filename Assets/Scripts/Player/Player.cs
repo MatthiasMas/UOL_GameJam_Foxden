@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
 
     private GameObject shieldLeftEquipped;
     private GameObject shieldRightEquipped;
+    private GameObject plasmaShield;
 
     [SerializeField]
     private float attackCooldown = 1f;
@@ -29,6 +30,8 @@ public class Player : MonoBehaviour
         shieldLeftEquipped.SetActive(false);
         shieldRightEquipped = GameObject.Find("ShieldRight");
         shieldRightEquipped.SetActive(false);
+        plasmaShield = GameObject.Find("PlasmaShield");
+        plasmaShield.SetActive(false);
     }
 
     void Update()
@@ -50,6 +53,11 @@ public class Player : MonoBehaviour
 
     public void HitShield(string shield)
     {
+        if (shield == "PlasmaShield")
+        {
+            this.inventory.setCore(false);
+            plasmaShield.SetActive(false);
+        }  
         if (shield == "ShieldLeft")
         {
             this.inventory.setLeftShield(false);
@@ -92,6 +100,7 @@ public class Player : MonoBehaviour
             if (!this.inventory.hasCore())
             {
                 this.inventory.setCore(true);
+                plasmaShield.SetActive(true);
                 return true;
             }
         }
