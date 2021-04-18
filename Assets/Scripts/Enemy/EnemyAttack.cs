@@ -90,7 +90,7 @@ public class EnemyAttack : MonoBehaviour
         rotation_z = Mathf.Atan2(directionVector.y, directionVector.x) * Mathf.Rad2Deg;
 
         GameObject projectile = Instantiate(projectilePrefab, firePoint.position, Quaternion.Euler(0f, 0f, rotation_z));
-        projectile.GetComponent<Projectile>().StartProjectile(directionVector, projectileSpeed);
+        projectile.GetComponent<Projectile>().StartProjectile(gameObject, directionVector, projectileSpeed);
 
         //if (canAttack)
         //{

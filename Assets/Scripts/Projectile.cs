@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-
+    private GameObject initiator;
     private SpriteRenderer spriteRenderer;
     private Rigidbody rb;
     private bool hasHit = false;
@@ -30,8 +30,9 @@ public class Projectile : MonoBehaviour
         
     }
 
-    public void StartProjectile(Vector3 direction, float projectileSpeed)
+    public void StartProjectile(GameObject initiator, Vector3 direction, float projectileSpeed)
     {
+        this.initiator = initiator;
         rb.velocity = direction * projectileSpeed;
         if (Random.Range(0f, 1f) > 0.98f)
         {
@@ -41,21 +42,33 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
-        if (collision.tag == "ShieldEquipped" && !hasHit)
+        if (initiator.tag == "Enemy")
         {
-            hasHit = true;
-            // TODO: SOUND SHIELD HIT
-            player.HitShield(collision.gameObject.name);
-            Destroy(gameObject);
-        }
+            if (collision.tag == "ShieldEquipped" && !hasHit)
+            {
+                hasHit = true;
+                // TODO: SOUND SHIELD HIT
+                player.HitShield(collision.gameObject.name);
+                Destroy(gameObject);
+            }
 
-        if (collision.tag == "Player" && !hasHit)
-        {
-            hasHit = true;
-            // TODO: SOUND PLAYER HIT
-            player.TakeDamage();
-            Destroy(gameObject);
+            if (collision.tag == "Player" && !hasHit)
+            {
+                hasHit = true;
+                // TODO: SOUND PLAYER HIT
+                player.TakeDamage();
+                Destroy(gameObject);
+            }
         }
+        if (initiator.tag == "Player")
+        {
+            if (collision.tag == "Enemy")
+            {
+                Destroy(collision.gameObject);
+                Destroy(gameObject);
+            }
+        }
+        
 
         
     }
