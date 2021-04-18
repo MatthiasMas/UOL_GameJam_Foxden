@@ -154,6 +154,7 @@ GameObject:
   - component: {fileID: -7941170419306149644}
   - component: {fileID: 2120482340746018775}
   - component: {fileID: 7477053223901222129}
+  - component: {fileID: 7905643224412544130}
   m_Layer: 0
   m_Name: Enemy_BlueSparrow
   m_TagString: Enemy
@@ -291,6 +292,25 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.690416, y: 0.73219347, z: 0.2}
   m_Center: {x: -0.0061642528, y: 0.015410557, z: 0}
+--- !u!95 &7905643224412544130
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8007218270827727965}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b63d72c462e81accd90e8e370d09139f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8179669364307230008
 GameObject:
   m_ObjectHideFlags: 0
