@@ -66,9 +66,10 @@ public class EnemyAttack : MonoBehaviour
     IEnumerator Attack()
     {
         GameObject projectilePrefab = FindObjectOfType<GameManager>().GetPrefab("Projectile");
-        //FindObjectOfType<GameManager>().PlaySound("TestSFX", GameManager.MixerGroup.SFX);
+
+        FindObjectOfType<GameManager>().PlaySound("charge", GameManager.MixerGroup.SFX);
         yield return new WaitForSeconds(chargeTime1);
-        //TODO: SOUND CHARGE ATTACK
+        
         if (playerPosition == null)
         {
             yield break;

@@ -16,6 +16,8 @@ public class FogGeneration : MonoBehaviour
     private float timer = 0f;
     private float renderTimer = 0f;
 
+    [SerializeField]
+    private SpriteMask mask;
     private OpenSimplexNoise simplex;
     public PlayerMovement player;
 
@@ -67,6 +69,9 @@ public class FogGeneration : MonoBehaviour
             }
         }
         texture.Apply();
+
+        Rect rect = new Rect(0, 0, 100, 100);
+        mask.GetComponent<SpriteMask>().sprite = Sprite.Create(texture, rect, new Vector2(0.5f, 0.5f));
         return texture;
     }
 

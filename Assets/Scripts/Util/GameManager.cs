@@ -44,7 +44,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        // add theme here
+
+        FindObjectOfType<GameManager>().PlaySound("maintheme", GameManager.MixerGroup.Music);
     }
 
     public void PlaySound(string name, MixerGroup group)

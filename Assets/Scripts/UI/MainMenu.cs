@@ -22,18 +22,16 @@ public class MainMenu : MonoBehaviour
     public void SetMasterAudioLevel(System.Single audioLevel)
     {
         masterMixer.SetFloat("MasterVolume", Mathf.Log10(audioLevel) * 20);
-        FindObjectOfType<GameManager>().PlaySound("TestMusic", GameManager.MixerGroup.Master);
     }
 
     public void SetMusicAudioLevel(System.Single audioLevel)
     {
         masterMixer.SetFloat("MusicVolume", Mathf.Log10(audioLevel) * 20);
-        FindObjectOfType<GameManager>().PlaySound("TestMusic", GameManager.MixerGroup.Music);
     }
 
     public void SetSFXAudioLevel(System.Single audioLevel)
     {
         masterMixer.SetFloat("SFXVolume", Mathf.Log10(audioLevel) * 20);
-        FindObjectOfType<GameManager>().PlaySound("TestSFX", GameManager.MixerGroup.SFX);
+        FindObjectOfType<GameManager>().PlaySound("blaster2", GameManager.MixerGroup.SFX);
     }
 }

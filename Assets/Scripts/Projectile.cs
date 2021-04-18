@@ -34,9 +34,36 @@ public class Projectile : MonoBehaviour
     {
         this.initiator = initiator;
         rb.velocity = direction * projectileSpeed;
+
         if (Random.Range(0f, 1f) > 0.98f)
         {
             spriteRenderer.sprite = FindObjectOfType<GameManager>().GetSprite("TX Village Props_1");
+            FindObjectOfType<GameManager>().PlaySound("arrow", GameManager.MixerGroup.SFX);
+            return;
+        }
+
+        if (initiator.tag == "Enemy")
+        {
+            float random = Random.Range(0f, 1f);
+            if (random < 0.3f)
+            {
+                FindObjectOfType<GameManager>().PlaySound("blaster2", GameManager.MixerGroup.SFX);
+                return;
+            }
+            if (random < 0.7f)
+            {
+                FindObjectOfType<GameManager>().PlaySound("blaster3", GameManager.MixerGroup.SFX);
+                return;
+            }
+            if (random >= 0.7f)
+            {
+                FindObjectOfType<GameManager>().PlaySound("blaster4", GameManager.MixerGroup.SFX);
+                return;
+            }
+        }
+        if (initiator.tag == "Player")
+        {
+            FindObjectOfType<GameManager>().PlaySound("blaster1", GameManager.MixerGroup.SFX);
         }
     }
 
@@ -52,7 +79,7 @@ public class Projectile : MonoBehaviour
             if (collision.tag == "ShieldEquipped" && !hasHit)
             {
                 hasHit = true;
-                // TODO: SOUND SHIELD HIT
+                FindObjectOfType<GameManager>().PlaySound("shieldhit", GameManager.MixerGroup.SFX);
                 player.HitShield(collision.gameObject.name);
                 Destroy(gameObject);
             }
@@ -60,7 +87,7 @@ public class Projectile : MonoBehaviour
             if (collision.tag == "Player" && !hasHit)
             {
                 hasHit = true;
-                // TODO: SOUND PLAYER HIT
+                FindObjectOfType<GameManager>().PlaySound("playerhit", GameManager.MixerGroup.SFX);
                 player.TakeDamage();
                 Destroy(gameObject);
             }
@@ -69,6 +96,7 @@ public class Projectile : MonoBehaviour
         {
             if (collision.tag == "Enemy")
             {
+                FindObjectOfType<GameManager>().PlaySound("playerhit", GameManager.MixerGroup.SFX);
                 Destroy(collision.gameObject);
                 Destroy(gameObject);
             }
