@@ -39,6 +39,6 @@ public class EnemySpawner : MonoBehaviour
             transform.position.y + Random.Range(-maxSpawnDistance, maxSpawnDistance),
             0);
         }
-        Instantiate(enemyPrefab, position, Quaternion.identity);
+        Instantiate(enemyPrefab, position, Quaternion.Euler(0f, 0f, Random.Range(-180f, 180f)));
     }
 }

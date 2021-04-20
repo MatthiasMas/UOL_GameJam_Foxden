@@ -46,6 +46,13 @@ public class Player : MonoBehaviour
 
     public void TakeDamage()
     {
+        if (this.inventory.hasCore())
+        {
+            this.inventory.setCore(false);
+            plasmaShield.SetActive(false);
+            return;
+        }
+
         transform.DetachChildren();
         Destroy(gameObject);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
@@ -53,11 +60,6 @@ public class Player : MonoBehaviour
 
     public void HitShield(string shield)
     {
-        if (shield == "PlasmaShield")
-        {
-            this.inventory.setCore(false);
-            plasmaShield.SetActive(false);
-        }  
         if (shield == "ShieldLeft")
         {
             this.inventory.setLeftShield(false);

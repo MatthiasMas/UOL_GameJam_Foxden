@@ -86,14 +86,6 @@ public class Projectile : MonoBehaviour
                 Destroy(gameObject);
             }
 
-            if (collision.tag == "PlasmaShield" && !hasHit)
-            {
-                hasHit = true;
-                FindObjectOfType<GameManager>().PlaySound("shieldhit", GameManager.MixerGroup.SFX);
-                player.HitShield(collision.gameObject.name);
-                Destroy(gameObject);
-            }
-
             if (collision.tag == "Player" && !hasHit)
             {
                 hasHit = true;
@@ -118,10 +110,10 @@ public class Projectile : MonoBehaviour
 
     private void triggerExplosion(GameObject gObject)
     {
-        GameObject enemyPrefab = FindObjectOfType<GameManager>().GetPrefab("Explosion");
+        GameObject explosionPrefab = FindObjectOfType<GameManager>().GetPrefab("Explosion");
         Vector3 position = new Vector3(gObject.transform.position.x, gObject.transform.position.y, 0);
                 
-        Instantiate(enemyPrefab, position, Quaternion.identity);
+        Instantiate(explosionPrefab, position, Quaternion.identity);
     }
 
     private void OnBecameInvisible()

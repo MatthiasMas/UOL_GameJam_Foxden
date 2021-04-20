@@ -93,6 +93,11 @@ public class FieldOfView : MonoBehaviour
                 enemy.isInFOV = true;
                 enemyAttack.canAttack = true;
             }
+            else
+            {
+                enemy.isInFOV = false;
+                enemyAttack.canAttack = false;
+            }
         }
         else
         {

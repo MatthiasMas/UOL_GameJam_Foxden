@@ -414,6 +414,7 @@ MonoBehaviour:
   goalPosition: {x: 0, y: 0}
   goalReachedDistance: 0.5
   newGoalDistance: 10
+  rotationSpeed: 20
   isInFOV: 0
   wasInFOV: 0
 --- !u!114 &-7941170419306149644

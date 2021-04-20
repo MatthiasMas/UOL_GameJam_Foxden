@@ -19,6 +19,8 @@ public class EnemyMovement : MonoBehaviour
     private float goalReachedDistance;
     [SerializeField]
     private float newGoalDistance;
+    [SerializeField]
+    private float rotationSpeed;
 
     public bool isInFOV;
     public bool wasInFOV;
@@ -75,7 +77,6 @@ public class EnemyMovement : MonoBehaviour
             transform.position.x + dir.x * moveSpeed, 
             transform.position.y + dir.y * moveSpeed);
         transform.position = newPos;
-        // TODO: ENEMY MOVEMENT SOUND
     }
 
     private void UpdateGoalPosition()
@@ -95,6 +96,14 @@ public class EnemyMovement : MonoBehaviour
     {
         var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         var q = Quaternion.AngleAxis(angle - 90, Vector3.forward);
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, q, 100 * Time.fixedDeltaTime);
+        if (isInFOV)
+        {
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, q, rotationSpeed * Time.fixedDeltaTime);
+        }
+        else
+        {
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, q, 100 * Time.fixedDeltaTime);
+        }
+        
     }
 }
